@@ -65,11 +65,11 @@ function App() {
 
         <div
           className={`${
-            showInfo ? "" : "hidden"
+            showInfo ? "flex" : "hidden"
           } z-10 md:flex flex-col gap-4 max-w-7xl mx-auto md:flex-row md:justify-between text-center items-center rounded-lg bg-white p-6 relative top-10 shadow-2xl`}
           id="info"
         >
-          <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3 gap-2">
+          <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3">
             <span className="uppercase text-gray-500 font-bold">Name</span>
             <span
               className="text-gray-700 text-lg md:text-xl font-bold"
@@ -78,7 +78,7 @@ function App() {
               {templeList[templeIndex].name}
             </span>
           </div>
-          <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3 gap-2 md:border-l">
+          <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3 md:border-l">
             <span className="uppercase text-gray-500 font-bold">location</span>
             <span
               className="text-gray-700 text-lg md:text-xl font-bold"
@@ -87,7 +87,7 @@ function App() {
               {templeList[templeIndex].location}
             </span>
           </div>
-          <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3 gap-2 md:border-l">
+          <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3 md:border-l">
             <span className="uppercase text-gray-500 font-bold">Event</span>
             <span
               className="text-gray-700 text-lg md:text-xl font-bold"
@@ -96,7 +96,7 @@ function App() {
               {Event[templeList[templeIndex].event]}
             </span>
           </div>
-          <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3 gap-2 md:border-l">
+          <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3 md:border-l">
             <span className="uppercase text-gray-500 font-bold">Deity</span>
             <span
               className="text-gray-700 text-lg md:text-xl font-bold"
