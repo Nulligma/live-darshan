@@ -32,7 +32,7 @@ function App() {
   const mapRef = useRef(null);
 
   return (
-    <main className="font-display flex flex-col h-screen">
+    <main className="font-display flex flex-col h-dvh">
       <div className="p-6 h-[25vh] bg-purple-800">
         <h1 className="text-2xl md:text-5xl text-white text-center font-bold mb-2 md:mb-6">
           Live Darshan
