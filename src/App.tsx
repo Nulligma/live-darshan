@@ -28,31 +28,45 @@ import { Deity, Event, templeList } from "./data";
 function App() {
   const [open, setOpen] = useState(false);
   const [templeIndex, setTempleIndex] = useState(0);
+  const [showInfo, setShowInfo] = useState(false);
   const mapRef = useRef(null);
 
   return (
     <main className="font-display flex flex-col h-screen">
       <div className="p-6 h-[25vh] bg-purple-800">
-        <h1 className="text-2xl md:text-5xl text-white text-center font-bold mb-6">
+        <h1 className="text-2xl md:text-5xl text-white text-center font-bold mb-2 md:mb-6">
           Live Darshan
         </h1>
-        <form action="/" className="flex items-center justify-center">
+
+        <form action="/" className=" flex items-center justify-center">
           <input
             type="text"
             id="ip-input"
             placeholder="Search for any city or live location"
-            className="bg-white rounded-l-lg p-3 w-3xl h-16 text-lg"
+            className="bg-white rounded-l-lg p-2 md:p-3 w-3xl md:h-16 md:text-lg "
           />
           <button
             type="submit"
-            className="bg-gray-800 text-center p-6 text-xl hover:bg-gray-700 rounded-r-lg cursor-pointer text-white"
+            className="bg-gray-800 text-center p-3 md:p-6 text-xl hover:bg-gray-700 rounded-r-lg cursor-pointer text-white"
           >
             <FaSearch />
           </button>
         </form>
 
+        <div className="md:hidden mt-2">
+          <button
+            type="button"
+            onClick={() => setShowInfo((old) => !old)}
+            className="flex w-full justify-center items-center rounded-md bg-purple-900 px-3 py-2 text-sm font-semibold text-white shadow-xs sm:ml-3 sm:w-auto"
+          >
+            Info
+          </button>
+        </div>
+
         <div
-          className="z-10 flex flex-col gap-4 max-w-7xl mx-auto md:flex-row md:justify-between text-center items-center rounded-lg bg-white p-6 relative top-10 shadow-2xl"
+          className={`${
+            showInfo ? "" : "hidden"
+          } z-10 md:flex flex-col gap-4 max-w-7xl mx-auto md:flex-row md:justify-between text-center items-center rounded-lg bg-white p-6 relative top-10 shadow-2xl`}
           id="info"
         >
           <div className="md:h-40 md:w-[25%] px-4 flex flex-col md:gap-3 gap-2">
@@ -127,9 +141,7 @@ function App() {
                         src={templeList[templeIndex].video}
                         title="YouTube video player"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        width={400}
-                        height={250}
-                        className="mx-auto"
+                        className="w-full aspect-video"
                       ></iframe>
                     </div>
                     <div className="mt-2">
@@ -186,10 +198,10 @@ function App() {
         </MapContainer>
       </div>
 
-      <footer className="h-[10vh] bg-purple-200 py-2 px-20 text-gray-700 border-t-3 border-purple-500">
+      <footer className="h-[10vh] bg-purple-200 py-2 md:px-20 text-gray-700 border-t-3 border-purple-500">
         <div className="max-w-7xl flex justify-between mx-auto">
           <button
-            className="flex flex-col items-center gap-2 text-center bg-purple-100 rounded-lg p-3 w-50 cursor-pointer"
+            className="flex flex-col items-center gap-2 text-center bg-purple-100 rounded-lg p-3 md:w-50 cursor-pointer"
             disabled={templeIndex === 0}
             onClick={() => setTempleIndex((old) => old - 1)}
           >
@@ -201,7 +213,7 @@ function App() {
             </span>
           </button>
           <button
-            className="flex flex-col items-center gap-2 text-center bg-purple-100 rounded-lg p-3 w-50 cursor-pointer"
+            className="flex flex-col items-center gap-2 text-center bg-purple-100 rounded-lg p-3 md:w-50 cursor-pointer"
             onClick={() => {}}
           >
             <span className="text-3xl">
@@ -212,7 +224,7 @@ function App() {
             </span>
           </button>
           <button
-            className="flex flex-col items-center gap-2 text-center bg-purple-100 rounded-lg p-3 w-50 cursor-pointer disabled:bg-gray-200"
+            className="flex flex-col items-center gap-2 text-center bg-purple-100 rounded-lg p-3 md:w-50 cursor-pointer disabled:bg-gray-200"
             disabled={templeIndex === templeList.length - 1}
             onClick={() => setTempleIndex((old) => old + 1)}
           >
